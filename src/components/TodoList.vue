@@ -79,12 +79,10 @@ const addNewTodo = async () => {
     }
 
     if (
-      todos.value.some((todo: Todo) => {
-        alert(todo.label.toLowerCase() + "=== " + newTodo.value.toLowerCase());
-        return (
-          todo.label && todo.label.toLowerCase() === newTodo.value.toLowerCase()
-        );
-      })
+      todos.value.some(
+        (todo: Todo) =>
+          todo.label && todo.label.toLowerCase === newTodo.value.toLowerCase,
+      )
     ) {
       alert("Todo already exists");
       isLoading.value = false;
