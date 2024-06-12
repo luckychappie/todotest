@@ -9,7 +9,7 @@
       <ul v-else class="list-group">
         <li v-for="todo in todos" :key="todo.id" class="list-group-item todo-item d-flex align-space-between ">
           <label class="text-gold">
-            <input type="checkbox" v-model="todo.done" @change="toggleDone(todo.id)" />
+            <input type="checkbox" v-model="todo.done" @change="toggleDone()" />
             <span :class="{ 'text-decoration-line-through': todo.done }">{{ todo.label }}</span>
           </label>
           <div>
@@ -55,7 +55,7 @@
         return;
       }
       
-      if (todos.value.some((todo: Todo) => todo.label && todo.label.toLowerCase === newTodo.value.toLowerCase)) {
+      if (todos.value.some((todo: Todo) => todo.label && todo.label.toLowerCase() === newTodo.value.toLowerCase())) {
         alert('Todo already exists');
         isLoading.value = false
         return;
@@ -74,9 +74,9 @@
   }
 
   
-  const toggleDone = async (id: string) => {
+  const toggleDone = async () => {
     isLoading.value = true
-    await toggleTodo(id);
+    await toggleTodo();
     isLoading.value = false
   };
   

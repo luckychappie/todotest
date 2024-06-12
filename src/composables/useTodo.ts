@@ -16,13 +16,8 @@ export const useTodo = () => {
     await saveTodos(todos.value);
   };
 
-  const toggleTodo = async (id: string) => {
-    
-    const updateTodos = todos.value = await todos.value.map(todo =>
-      todo.id === id ? { ...todo } : todo
-    );
-    
-    saveTodos(updateTodos);
+  const toggleTodo = async () => {    
+    saveTodos(todos.value);
   };
 
   const updateTodo = async (id: string, editLabel: string) => {
