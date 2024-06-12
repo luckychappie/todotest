@@ -55,7 +55,14 @@
         return;
       }
       
-      if (todos.value.some((todo: Todo) => todo.label && todo.label.toLowerCase() === newTodo.value.toLowerCase())) {
+      if (todos.value.some((todo: Todo) =>{
+        console.log(todo.label.toLowerCase()+" === "+newTodo.value.toLowerCase())
+        if (todo.label && todo.label.toLowerCase() === newTodo.value.toLowerCase()) {
+          alert(todo.label.toLowerCase()+" === "+newTodo.value.toLowerCase())
+          return todo.label.toLowerCase()+" === "+newTodo.value.toLowerCase()
+        }
+         
+      })) {
         alert('Todo already exists');
         isLoading.value = false
         return;
