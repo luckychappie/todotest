@@ -1,0 +1,26 @@
+:root{
+  --fontColor: #8c7708;
+}
+.done {
+  text-decoration: line-through;
+}
+
+input[type='checkbox'] {
+  margin-right: 0.5rem;
+}
+
+button {
+  margin-left: 5px;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.todo-item:hover{
+  background-color: rgb(240, 243, 243) !important;
+}
+
+.text-gold {
+  color: var(--fontColor) !important;
+}
