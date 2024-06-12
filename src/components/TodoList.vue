@@ -57,7 +57,7 @@ const addNewTodo = async () => {
     
     if (todos.value.some((todo: Todo) =>{
       console.log(todo.label.toLowerCase()+" === "+newTodo.value.toLowerCase())
-      if (todo.label && todo.label.toLowerCase() === newTodo.value.toLowerCase()) {
+      if (todo.label && todo.label.toLowerCase().trim() === newTodo.value.toLowerCase().trim()) {
         alert(todo.label.toLowerCase()+" === "+newTodo.value.toLowerCase())
         return todo.label.toLowerCase()+" === "+newTodo.value.toLowerCase()
       }
@@ -89,7 +89,13 @@ const toggleDone = async () => {
 
 const remove = async (id: string) => {
   isLoading.value = true
-  await removeTodo(id);
+  if(confirm("Do you really want to delete?")){
+    if(id === editingTodo.value?.id){
+      editingTodo.value = null
+      newTodo.value = ""
+    }
+    await removeTodo(id);
+  }
   isLoading.value = false
 };
 
