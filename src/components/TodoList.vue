@@ -55,7 +55,7 @@
         return;
       }
       
-      if (todos.value.some((todo: Todo) => todo.label && todo.label === newTodo.value)) {
+      if (todos.value.some((todo: Todo) => todo.label && todo.label.toLowerCase === newTodo.value.toLowerCase)) {
         alert('Todo already exists');
         isLoading.value = false
         return;
